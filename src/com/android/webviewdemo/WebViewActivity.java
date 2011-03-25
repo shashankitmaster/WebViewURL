@@ -107,7 +107,7 @@ public class WebViewActivity extends Activity {
 				// System.gc();
 				// }
 
-				Log.i("JSON", x);
+				//Log.i("JSON", x);
 				textView.setText(x);
 			}
 		} catch (MalformedURLException e) {
