@@ -37,9 +37,6 @@ public class WebViewActivity extends Activity {
 		textView = (TextView) findViewById(R.id.webView);
 		textView.setTextColor(Color.WHITE);
 
-	/*	ProgressThread progressThread = new ProgressThread();
-		progressThread.start();*/
-
 		Button button = (Button) findViewById(R.id.score);
 
 		button.setOnClickListener(new OnClickListener() {
@@ -51,23 +48,8 @@ public class WebViewActivity extends Activity {
 		});
 	}
 
-//	private class ProgressThread extends Thread {
-//		@Override
-//		public void run() {
-//
-//			getScore();
-//			try {
-//				Thread.sleep(150000);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
-
 	private void getScore() {
 		HttpClient httpclient = new DefaultHttpClient();
-		// HttpGet httpget = new
-		// HttpGet("http://feeds.delicious.com/v2/json");
 		HttpGet httpget = new HttpGet(
 				"http://json-cricket.appspot.com/score.json");
 		HttpResponse response;
@@ -90,24 +72,6 @@ public class WebViewActivity extends Activity {
 				x += "Score: " + entries.getString("score") + "\n";
 				x += "Summary: " + entries.getString("summary") + "\n\n";
 
-				// JSONObject post = null;
-				// for (int i = 0; i < entries.length(); i++) {
-				// //post = entries.getJSONObject(i);
-				// x += "------------\n";
-				// System.gc();
-				// x += "URL :" + post.getString("batting_team") + "\n";
-				// x += "Date:" + post.getString("date") + "\n";
-				// /*
-				// * array = post.getJSONArray("t"); x += array.get(i);
-				// */
-				// x += "Match:" + post.getString("match") + "\n";
-				// x += "Score:" + post.getString("score") + "\n";
-				// x += "Summary:" + post.getString("summary") + "\n\n";
-				// post = null;
-				// System.gc();
-				// }
-
-				//Log.i("JSON", x);
 				textView.setText(x);
 			}
 		} catch (MalformedURLException e) {
